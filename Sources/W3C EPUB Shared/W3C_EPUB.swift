@@ -6,7 +6,7 @@
 // and encoding structured and semantically enhanced web content — including HTML,
 // CSS, SVG, and other resources — for distribution in a single-file container.
 
-public import Standards
+public import Standard_Library_Extensions
 
 /// The root namespace for W3C EPUB 3.3 definitions.
 ///
