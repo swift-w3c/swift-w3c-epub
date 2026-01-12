@@ -60,10 +60,10 @@ let package = Package(
         .library(name: .w3cEPUB, targets: [.w3cEPUB]),
     ],
     dependencies: [
-        .package(path: "../../swift-primitives/swift-standard-library-extensions"),
-        .package(path: "../swift-bcp-47"),
-        .package(path: "../swift-html-standard"),
-        .package(path: "../swift-css-standard"),
+        .package(url: "https://github.com/swift-primitives/swift-standard-library-extensions.git", from: "0.0.1"),
+        .package(url: "https://github.com/swift-standards/swift-bcp-47.git", from: "0.0.1"),
+        .package(url: "https://github.com/swift-standards/swift-html-standard.git", from: "0.0.1"),
+        .package(url: "https://github.com/swift-standards/swift-css-standard.git", from: "0.0.1"),
         .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.18.0"),
     ],
     targets: [
