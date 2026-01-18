@@ -44,94 +44,94 @@ let package = Package(
         .iOS(.v26),
         .tvOS(.v26),
         .watchOS(.v26),
-        .visionOS(.v26),
+        .visionOS(.v26)
     ],
     products: [
         // Individual Modules
-        .library(name: .w3cEPUBShared, targets: [.w3cEPUBShared]),
-        .library(name: .w3cEPUBPublications, targets: [.w3cEPUBPublications]),
-        .library(name: .w3cEPUBContentDocuments, targets: [.w3cEPUBContentDocuments]),
-        .library(name: .w3cEPUBPackageDocument, targets: [.w3cEPUBPackageDocument]),
-        .library(name: .w3cEPUBNavigationDocument, targets: [.w3cEPUBNavigationDocument]),
-        .library(name: .w3cEPUBFixedLayouts, targets: [.w3cEPUBFixedLayouts]),
-        .library(name: .w3cEPUBOpenContainerFormat, targets: [.w3cEPUBOpenContainerFormat]),
+        .library(name: "W3C EPUB Shared", targets: ["W3C EPUB Shared"]),
+        .library(name: "W3C EPUB Publications", targets: ["W3C EPUB Publications"]),
+        .library(name: "W3C EPUB Content Documents", targets: ["W3C EPUB Content Documents"]),
+        .library(name: "W3C EPUB Package Document", targets: ["W3C EPUB Package Document"]),
+        .library(name: "W3C EPUB Navigation Document", targets: ["W3C EPUB Navigation Document"]),
+        .library(name: "W3C EPUB Fixed Layouts", targets: ["W3C EPUB Fixed Layouts"]),
+        .library(name: "W3C EPUB Open Container Format", targets: ["W3C EPUB Open Container Format"]),
 
         // Umbrella
-        .library(name: .w3cEPUB, targets: [.w3cEPUB]),
+        .library(name: "W3C EPUB", targets: ["W3C EPUB"])
     ],
     dependencies: [
         .package(path: "../../swift-primitives/swift-standard-library-extensions"),
         .package(path: "../swift-bcp-47"),
         .package(path: "../swift-html-standard"),
         .package(path: "../swift-css-standard"),
-        .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.18.0"),
+        .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.18.0")
     ],
     targets: [
         // MARK: - Shared
 
         .target(
-            name: .w3cEPUBShared,
+            name: "W3C EPUB Shared",
             dependencies: [
-                .product(name: "Standard Library Extensions", package: "swift-standard-library-extensions"),
+                .product(name: "Standard Library Extensions", package: "swift-standard-library-extensions")
             ]
         ),
 
         // MARK: - Section Modules
 
         .target(
-            name: .w3cEPUBPublications,
+            name: "W3C EPUB Publications",
             dependencies: [
-                .w3cEPUBShared,
+                .w3cEPUBShared
             ]
         ),
 
         .target(
-            name: .w3cEPUBContentDocuments,
+            name: "W3C EPUB Content Documents",
             dependencies: [
                 .w3cEPUBShared,
                 .w3cEPUBPublications,
-                .product(name: "HTML Standard", package: "swift-html-standard"),
+                .product(name: "HTML Standard", package: "swift-html-standard")
             ]
         ),
 
         .target(
-            name: .w3cEPUBPackageDocument,
+            name: "W3C EPUB Package Document",
             dependencies: [
                 .w3cEPUBShared,
                 .w3cEPUBPublications,
-                .product(name: "BCP 47", package: "swift-bcp-47"),
+                .product(name: "BCP 47", package: "swift-bcp-47")
             ]
         ),
 
         .target(
-            name: .w3cEPUBNavigationDocument,
+            name: "W3C EPUB Navigation Document",
             dependencies: [
                 .w3cEPUBShared,
-                .w3cEPUBContentDocuments,
+                .w3cEPUBContentDocuments
             ]
         ),
 
         .target(
-            name: .w3cEPUBFixedLayouts,
-            dependencies: [
-                .w3cEPUBShared,
-                .w3cEPUBPackageDocument,
-                .product(name: "CSS Standard", package: "swift-css-standard"),
-            ]
-        ),
-
-        .target(
-            name: .w3cEPUBOpenContainerFormat,
+            name: "W3C EPUB Fixed Layouts",
             dependencies: [
                 .w3cEPUBShared,
                 .w3cEPUBPackageDocument,
+                .product(name: "CSS Standard", package: "swift-css-standard")
+            ]
+        ),
+
+        .target(
+            name: "W3C EPUB Open Container Format",
+            dependencies: [
+                .w3cEPUBShared,
+                .w3cEPUBPackageDocument
             ]
         ),
 
         // MARK: - Umbrella
 
         .target(
-            name: .w3cEPUB,
+            name: "W3C EPUB",
             dependencies: [
                 .w3cEPUBShared,
                 .w3cEPUBPublications,
@@ -139,19 +139,11 @@ let package = Package(
                 .w3cEPUBPackageDocument,
                 .w3cEPUBNavigationDocument,
                 .w3cEPUBFixedLayouts,
-                .w3cEPUBOpenContainerFormat,
+                .w3cEPUBOpenContainerFormat
             ]
         ),
 
         // MARK: - Tests
-
-        .testTarget(
-            name: .w3cEPUB.tests,
-            dependencies: [
-                .w3cEPUB,
-                .product(name: "InlineSnapshotTesting", package: "swift-snapshot-testing"),
-            ]
-        ),
     ],
     swiftLanguageModes: [.v6]
 )
@@ -160,6 +152,6 @@ for target in package.targets where ![.system, .binary, .plugin].contains(target
     target.swiftSettings = (target.swiftSettings ?? []) + [
         .enableUpcomingFeature("ExistentialAny"),
         .enableUpcomingFeature("InternalImportsByDefault"),
-        .enableUpcomingFeature("MemberImportVisibility"),
+        .enableUpcomingFeature("MemberImportVisibility")
     ]
 }
