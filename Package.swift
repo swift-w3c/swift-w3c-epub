@@ -64,7 +64,7 @@ let package = Package(
         .package(path: "../swift-bcp-47"),
         .package(path: "../swift-html-standard"),
         .package(path: "../swift-css-standard"),
-        .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.18.0")
+        // .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.18.0")
     ],
     targets: [
         // MARK: - Shared
@@ -144,6 +144,12 @@ let package = Package(
         ),
 
         // MARK: - Tests
+        .testTarget(
+            name: "W3C EPUB Tests",
+            dependencies: [
+                "W3C EPUB Shared",
+            ]
+        ),
     ],
     swiftLanguageModes: [.v6]
 )
@@ -154,6 +160,7 @@ for target in package.targets where ![.system, .binary, .plugin, .macro].contain
         .enableUpcomingFeature("ExistentialAny"),
         .enableUpcomingFeature("InternalImportsByDefault"),
         .enableUpcomingFeature("MemberImportVisibility"),
+        .enableUpcomingFeature("NonisolatedNonsendingByDefault"),
         .enableExperimentalFeature("Lifetimes"),
         .enableExperimentalFeature("SuppressedAssociatedTypes"),
         .enableExperimentalFeature("SuppressedAssociatedTypesWithDefaults"),
