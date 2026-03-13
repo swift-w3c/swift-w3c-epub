@@ -61,9 +61,9 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../../swift-primitives/swift-standard-library-extensions"),
-        .package(path: "../swift-bcp-47"),
-        .package(path: "../swift-html-standard"),
-        .package(path: "../swift-css-standard"),
+        .package(path: "../../../swift-ietf/swift-bcp-47"),
+        .package(path: "../../swift-standards/swift-html-standard"),
+        .package(path: "../../swift-standards/swift-css-standard"),
         // .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.18.0")
     ],
     targets: [
