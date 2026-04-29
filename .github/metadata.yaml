@@ -1,0 +1,11 @@
+# .github/metadata.yaml
+# Triaged by AI-assisted bulk pass (2026-04-29).
+description: "Swift implementation of W3C EPUB 3.3."
+topics:
+  - standards
+  - w3c
+  - epub
+  - ebooks
+  - publishing
+  - document-format
+homepage: "https://swift-institute.org"
