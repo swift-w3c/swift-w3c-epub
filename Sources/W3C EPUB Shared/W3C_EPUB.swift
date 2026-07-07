@@ -33,15 +33,23 @@ extension W3C_EPUB {
             self.minor = minor
         }
 
+        // swift-format-ignore: AlwaysUseLowerCamelCase
+        // Reason: mirrors the EPUB version number spelling (spec-mirroring, API-NAME-003).
         /// EPUB 3.3 (W3C Recommendation, May 2023)
         public static let v3_3 = Version(major: 3, minor: 3)
 
+        // swift-format-ignore: AlwaysUseLowerCamelCase
+        // Reason: mirrors the EPUB version number spelling (spec-mirroring, API-NAME-003).
         /// EPUB 3.2 (2019)
         public static let v3_2 = Version(major: 3, minor: 2)
 
+        // swift-format-ignore: AlwaysUseLowerCamelCase
+        // Reason: mirrors the EPUB version number spelling (spec-mirroring, API-NAME-003).
         /// EPUB 3.0 (2011)
         public static let v3_0 = Version(major: 3, minor: 0)
 
+        // swift-format-ignore: AlwaysUseLowerCamelCase
+        // Reason: mirrors the EPUB version number spelling (spec-mirroring, API-NAME-003).
         /// EPUB 2.0.1 (2010)
         public static let v2_0_1 = Version(major: 2, minor: 0)
 

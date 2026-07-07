@@ -1,6 +1,7 @@
-import Testing
-@testable import W3C_EPUB
 import BCP_47
+import Testing
+
+@testable import W3C_EPUB
 
 @Suite("W3C EPUB Tests")
 struct W3C_EPUB_Tests {

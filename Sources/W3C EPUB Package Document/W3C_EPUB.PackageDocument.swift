@@ -1,9 +1,9 @@
 // W3C EPUB 3.3 — Package Document
 // https://www.w3.org/TR/epub-33/#sec-package-doc
 
-public import W3C_EPUB_Shared
-public import W3C_EPUB_Publications
 public import BCP_47
+public import W3C_EPUB_Publications
+public import W3C_EPUB_Shared
 
 extension W3C_EPUB {
     /// EPUB Package Document (content.opf).
@@ -134,7 +134,7 @@ extension W3C_EPUB.PackageDocument.Manifest {
         /// Media type of the resource.
         public var mediaType: String
 
-        /// Properties (e.g., "nav", "cover-image", "scripted").
+        /// Properties such as "nav", "cover-image", or "scripted".
         public var properties: Set<String>
 
         /// Fallback item ID for foreign resources.
