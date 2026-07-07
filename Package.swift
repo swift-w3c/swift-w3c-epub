@@ -62,6 +62,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/swift-primitives/swift-standard-library-extensions.git", branch: "main"),
         .package(url: "https://github.com/swift-ietf/swift-bcp-47.git", branch: "main"),
+        .package(url: "https://github.com/swift-ietf/swift-rfc-5646.git", branch: "main"),
         .package(url: "https://github.com/swift-standards/swift-html-standard.git", branch: "main"),
         .package(url: "https://github.com/swift-standards/swift-css-standard.git", branch: "main"),
         // .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.18.0")
@@ -148,6 +149,11 @@ let package = Package(
             name: "W3C EPUB Tests",
             dependencies: [
                 "W3C EPUB Shared",
+                .w3cEPUBPackageDocument,
+                .w3cEPUBNavigationDocument,
+                .w3cEPUBFixedLayouts,
+                .w3cEPUBOpenContainerFormat,
+                .product(name: "RFC 5646", package: "swift-rfc-5646"),
             ]
         ),
     ],
