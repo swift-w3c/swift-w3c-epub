@@ -52,13 +52,15 @@ extension W3C_EPUB {
         // Reason: mirrors the EPUB version number spelling (spec-mirroring, API-NAME-003).
         /// EPUB 2.0.1 (2010)
         public static let v2_0_1 = Version(major: 2, minor: 0)
+    }
+}
 
-        public static func < (lhs: Version, rhs: Version) -> Bool {
-            if lhs.major != rhs.major {
-                return lhs.major < rhs.major
-            }
-            return lhs.minor < rhs.minor
+extension W3C_EPUB.Version {
+    public static func < (lhs: W3C_EPUB.Version, rhs: W3C_EPUB.Version) -> Bool {
+        if lhs.major != rhs.major {
+            return lhs.major < rhs.major
         }
+        return lhs.minor < rhs.minor
     }
 }
 
