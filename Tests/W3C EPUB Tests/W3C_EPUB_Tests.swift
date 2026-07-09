@@ -5,22 +5,22 @@ import Testing
 
 @Suite("W3C EPUB Tests")
 struct W3C_EPUB_Tests {
-    @Test("Version comparison")
-    func versionComparison() {
+    @Test
+    func `Version comparison`() {
         #expect(W3C_EPUB.Version.v2_0_1 < W3C_EPUB.Version.v3_0)
         #expect(W3C_EPUB.Version.v3_0 < W3C_EPUB.Version.v3_2)
         #expect(W3C_EPUB.Version.v3_2 < W3C_EPUB.Version.v3_3)
     }
 
-    @Test("Media types")
-    func mediaTypes() {
+    @Test
+    func `Media types`() {
         #expect(W3C_EPUB.Media.Kind.epub.rawValue == "application/epub+zip")
         #expect(W3C_EPUB.Media.Kind.package.rawValue == "application/oebps-package+xml")
         #expect(W3C_EPUB.Media.Kind.xhtml.rawValue == "application/xhtml+xml")
     }
 
-    @Test("Package metadata")
-    func packageMetadata() throws {
+    @Test
+    func `Package metadata`() throws {
         let metadata = W3C_EPUB.PackageDocument.Metadata(
             identifier: "urn:uuid:12345",
             title: "Test Book",
@@ -34,8 +34,8 @@ struct W3C_EPUB_Tests {
         #expect(metadata.creators.count == 2)
     }
 
-    @Test("Manifest item")
-    func manifestItem() {
+    @Test
+    func `Manifest item`() {
         let item = W3C_EPUB.PackageDocument.Manifest.Item(
             id: "chapter1",
             href: "text/chapter1.xhtml",
@@ -47,8 +47,8 @@ struct W3C_EPUB_Tests {
         #expect(item.properties.contains("scripted"))
     }
 
-    @Test("Navigation item hierarchy")
-    func navigationHierarchy() {
+    @Test
+    func `Navigation item hierarchy`() {
         let nav = W3C_EPUB.NavigationDocument.NavigationItem(
             text: "Part 1",
             children: [
@@ -68,14 +68,14 @@ struct W3C_EPUB_Tests {
         #expect(nav.children[0].href == "text/ch1.xhtml")
     }
 
-    @Test("Fixed layout viewport")
-    func fixedLayoutViewport() {
+    @Test
+    func `Fixed layout viewport`() {
         let viewport = W3C_EPUB.FixedLayouts.Viewport(width: 1024, height: 768)
         #expect(viewport.metaContent == "width=1024, height=768")
     }
 
-    @Test("OCF container")
-    func ocfContainer() {
+    @Test
+    func `OCF container`() {
         let container = W3C_EPUB.OCF.Container(
             rootfiles: [
                 W3C_EPUB.OCF.Container.Rootfile(fullPath: "OEBPS/content.opf")
