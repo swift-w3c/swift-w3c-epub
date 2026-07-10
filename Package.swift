@@ -65,7 +65,7 @@ let package = Package(
         .package(url: "https://github.com/swift-ietf/swift-rfc-5646.git", branch: "main"),
         .package(url: "https://github.com/swift-standards/swift-html-standard.git", branch: "main"),
         .package(url: "https://github.com/swift-standards/swift-css-standard.git", branch: "main"),
-        // .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.18.0")
+        // .package(url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.18.0")
     ],
     targets: [
         // MARK: - Shared
