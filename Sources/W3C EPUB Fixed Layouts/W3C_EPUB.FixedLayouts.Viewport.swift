@@ -9,6 +9,7 @@ extension W3C_EPUB.FixedLayouts {
         public var height: Double
 
         public init(width: Double, height: Double) {
+            precondition(width.isFinite && height.isFinite, "EPUB viewport size must be finite: \(width) × \(height)")
             self.width = width
             self.height = height
         }
@@ -23,6 +24,7 @@ extension W3C_EPUB.FixedLayouts.Viewport {
     public static let iphone = W3C_EPUB.FixedLayouts.Viewport(width: 375, height: 667)
 
     public var metaContent: String {
-        "width=\(Int(width)), height=\(Int(height))"
+        precondition(width.isFinite && height.isFinite, "EPUB viewport size must be finite: \(width) × \(height)")
+        return "width=\(Int(width)), height=\(Int(height))"
     }
 }
