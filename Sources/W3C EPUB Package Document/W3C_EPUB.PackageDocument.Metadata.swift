@@ -24,7 +24,7 @@ extension W3C_EPUB.PackageDocument {
 
         public var subjects: [String]
 
-        public var modified: String?
+        public var modified: ISO_8601.DateTime?
 
         public init(
             identifier: String,
@@ -36,7 +36,7 @@ extension W3C_EPUB.PackageDocument {
             date: ISO_8601.CalendarDate.Reduced? = nil,
             description: String? = nil,
             subjects: [String] = [],
-            modified: String? = nil
+            modified: ISO_8601.DateTime? = nil
         ) {
             self.identifier = identifier
             self.title = title
