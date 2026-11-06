@@ -1,4 +1,6 @@
 import BCP_47
+import RFC_3987
+import RFC_9110
 import Testing
 import W3C_EPUB_Fixed_Layouts
 import W3C_EPUB_Navigation_Document
@@ -42,11 +44,11 @@ struct W3C_EPUB_Tests {
     }
 
     @Test
-    func `Manifest item`() {
+    func `Manifest item`() throws {
         let item = W3C_EPUB.PackageDocument.Manifest.Item(
             id: "chapter1",
-            href: "text/chapter1.xhtml",
-            mediaType: W3C_EPUB.Media.Kind.xhtml.rawValue,
+            href: try RFC_3987.IRI.Reference("text/chapter1.xhtml"),
+            mediaType: W3C_EPUB.Media.Kind.xhtml.mediaType,
             properties: ["scripted"]
         )
 
@@ -55,24 +57,24 @@ struct W3C_EPUB_Tests {
     }
 
     @Test
-    func `Navigation item hierarchy`() {
+    func `Navigation item hierarchy`() throws {
         let nav = W3C_EPUB.NavigationDocument.NavigationItem(
             text: "Part 1",
             children: [
                 W3C_EPUB.NavigationDocument.NavigationItem(
                     text: "Chapter 1",
-                    href: "text/ch1.xhtml"
+                    href: try RFC_3987.IRI.Reference("text/ch1.xhtml")
                 ),
                 W3C_EPUB.NavigationDocument.NavigationItem(
                     text: "Chapter 2",
-                    href: "text/ch2.xhtml"
+                    href: try RFC_3987.IRI.Reference("text/ch2.xhtml")
                 ),
             ]
         )
 
         #expect(nav.children.count == 2)
         #expect(nav.href == nil)
-        #expect(nav.children[0].href == "text/ch1.xhtml")
+        #expect(nav.children[0].href?.value == "text/ch1.xhtml")
     }
 
     @Test
@@ -90,6 +92,6 @@ struct W3C_EPUB_Tests {
         )
 
         #expect(container.rootfiles.count == 1)
-        #expect(container.rootfiles[0].mediaType == W3C_EPUB.Media.Kind.package.rawValue)
+        #expect(container.rootfiles[0].mediaType == W3C_EPUB.Media.Kind.package.mediaType)
     }
 }

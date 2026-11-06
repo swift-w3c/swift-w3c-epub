@@ -1,3 +1,4 @@
+public import BCP_47
 public import W3C_EPUB_Shared
 
 extension W3C_EPUB.ContentDocuments {
@@ -8,14 +9,14 @@ extension W3C_EPUB.ContentDocuments {
 
         public var title: String?
 
-        public var language: String?
+        public var language: BCP47.LanguageTag?
 
         public var isScripted: Bool
 
         public init(
             filename: String,
             title: String? = nil,
-            language: String? = nil,
+            language: BCP47.LanguageTag? = nil,
             isScripted: Bool = false
         ) {
             self.filename = filename

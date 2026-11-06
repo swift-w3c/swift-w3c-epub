@@ -32,6 +32,9 @@ let package = Package(
             branch: "main"
         ),
         .package(url: "https://github.com/swift-ietf/swift-bcp-47.git", branch: "main"),
+        .package(url: "https://github.com/swift-ietf/swift-rfc-3987.git", branch: "main"),
+        .package(url: "https://github.com/swift-ietf/swift-rfc-9110.git", branch: "main"),
+        .package(url: "https://github.com/swift-iso/swift-iso-8601.git", branch: "main"),
         .package(url: "https://github.com/swift-standards/swift-html-standard.git", branch: "main"),
         .package(url: "https://github.com/swift-standards/swift-css-standard.git", branch: "main"),
 
@@ -44,7 +47,8 @@ let package = Package(
                 .product(
                     name: "Standard Library Extensions",
                     package: "swift-standard-library-extensions"
-                )
+                ),
+                .product(name: "RFC 9110", package: "swift-rfc-9110"),
             ]
         ),
 
@@ -61,6 +65,7 @@ let package = Package(
                 .target(name: "W3C EPUB Shared"),
                 .target(name: "W3C EPUB Publications"),
                 .product(name: "HTML Standard", package: "swift-html-standard"),
+                .product(name: "BCP 47", package: "swift-bcp-47"),
             ]
         ),
 
@@ -70,6 +75,9 @@ let package = Package(
                 .target(name: "W3C EPUB Shared"),
                 .target(name: "W3C EPUB Publications"),
                 .product(name: "BCP 47", package: "swift-bcp-47"),
+                .product(name: "RFC 3987", package: "swift-rfc-3987"),
+                .product(name: "RFC 9110", package: "swift-rfc-9110"),
+                .product(name: "ISO 8601", package: "swift-iso-8601"),
             ]
         ),
 
@@ -78,6 +86,7 @@ let package = Package(
             dependencies: [
                 .target(name: "W3C EPUB Shared"),
                 .target(name: "W3C EPUB Content Documents"),
+                .product(name: "RFC 3987", package: "swift-rfc-3987"),
             ]
         ),
 
@@ -95,6 +104,7 @@ let package = Package(
             dependencies: [
                 .target(name: "W3C EPUB Shared"),
                 .target(name: "W3C EPUB Package Document"),
+                .product(name: "RFC 9110", package: "swift-rfc-9110"),
             ]
         ),
 
@@ -120,6 +130,8 @@ let package = Package(
                 .target(name: "W3C EPUB Fixed Layouts"),
                 .target(name: "W3C EPUB Open Container Format"),
                 .product(name: "BCP 47", package: "swift-bcp-47"),
+                .product(name: "RFC 3987", package: "swift-rfc-3987"),
+                .product(name: "RFC 9110", package: "swift-rfc-9110"),
             ]
         ),
     ],

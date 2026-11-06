@@ -1,3 +1,4 @@
+public import RFC_3987
 public import W3C_EPUB_Shared
 
 extension W3C_EPUB.NavigationDocument {
@@ -6,13 +7,13 @@ extension W3C_EPUB.NavigationDocument {
 
         public var text: String
 
-        public var href: String?
+        public var href: RFC_3987.IRI.Reference?
 
         public var children: [NavigationItem]
 
         public init(
             text: String,
-            href: String? = nil,
+            href: RFC_3987.IRI.Reference? = nil,
             children: [NavigationItem] = []
         ) {
             self.text = text

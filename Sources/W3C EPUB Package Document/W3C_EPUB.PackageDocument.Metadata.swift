@@ -1,4 +1,5 @@
 public import BCP_47
+public import ISO_8601
 public import W3C_EPUB_Shared
 
 extension W3C_EPUB.PackageDocument {
@@ -17,7 +18,7 @@ extension W3C_EPUB.PackageDocument {
 
         public var publisher: String?
 
-        public var date: String?
+        public var date: ISO_8601.CalendarDate.Reduced?
 
         public var description: String?
 
@@ -32,7 +33,7 @@ extension W3C_EPUB.PackageDocument {
             creators: [String] = [],
             contributors: [String] = [],
             publisher: String? = nil,
-            date: String? = nil,
+            date: ISO_8601.CalendarDate.Reduced? = nil,
             description: String? = nil,
             subjects: [String] = [],
             modified: String? = nil
