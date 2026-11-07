@@ -8,8 +8,8 @@ import W3C_EPUB_Open_Container_Format
 import W3C_EPUB_Package_Document
 import W3C_EPUB_Shared
 
-@Suite("W3C EPUB Tests")
-struct W3C_EPUB_Tests {
+@Suite
+struct `W3C EPUB Tests` {
     @Suite struct Unit {}
     @Suite struct `Edge Case` {}
     @Suite struct Integration {}
