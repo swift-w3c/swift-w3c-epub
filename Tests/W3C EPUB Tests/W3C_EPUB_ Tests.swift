@@ -25,6 +25,15 @@ extension `W3C_EPUB_ Tests` {
         }
 
         @Test
+        func `Version 2.0.1 keeps its patch component`() {
+            #expect(W3C_EPUB.Version.v2_0_1.description == "2.0.1")
+            #expect(W3C_EPUB.Version.v3_3.description == "3.3")
+            #expect(W3C_EPUB.Version.v2_0_1 != W3C_EPUB.Version(major: 2, minor: 0))
+            #expect(W3C_EPUB.Version(major: 2, minor: 0) < W3C_EPUB.Version.v2_0_1)
+            #expect(W3C_EPUB.Version.v2_0_1 < W3C_EPUB.Version(major: 2, minor: 1))
+        }
+
+        @Test
         func `Media types`() {
             #expect(W3C_EPUB.Media.Kind.epub.rawValue == "application/epub+zip")
             #expect(W3C_EPUB.Media.Kind.package.rawValue == "application/oebps-package+xml")
