@@ -5,7 +5,11 @@ extension W3C_EPUB {
         public let minor: Int
         public let patch: Int
 
-        public init(major: Int, minor: Int, patch: Int = 0) {
+        public init(major: Int, minor: Int) {
+            self.init(major: major, minor: minor, patch: 0)
+        }
+
+        init(major: Int, minor: Int, patch: Int) {
             self.major = major
             self.minor = minor
             self.patch = patch
