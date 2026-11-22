@@ -18,13 +18,13 @@ extension W3C.EPUB.PackageDocument {
 
         public var publisher: String?
 
-        public var date: ISO_8601.CalendarDate.Reduced?
+        public var date: ISO.`8601`.CalendarDate.Reduced?
 
         public var description: String?
 
         public var subjects: [String]
 
-        public var modified: ISO_8601.DateTime?
+        public var modified: ISO.`8601`.DateTime?
 
         public init(
             identifier: String,
@@ -33,10 +33,10 @@ extension W3C.EPUB.PackageDocument {
             creators: [String] = [],
             contributors: [String] = [],
             publisher: String? = nil,
-            date: ISO_8601.CalendarDate.Reduced? = nil,
+            date: ISO.`8601`.CalendarDate.Reduced? = nil,
             description: String? = nil,
             subjects: [String] = [],
-            modified: ISO_8601.DateTime? = nil
+            modified: ISO.`8601`.DateTime? = nil
         ) {
             self.identifier = identifier
             self.title = title
