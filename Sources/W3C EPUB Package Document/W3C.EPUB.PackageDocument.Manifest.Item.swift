@@ -8,9 +8,9 @@ extension W3C.EPUB.PackageDocument.Manifest {
 
         public var id: String
 
-        public var href: RFC_3987.IRI.Reference
+        public var href: IETF.RFC.`3987`.IRI.Reference
 
-        public var mediaType: RFC_9110.MediaType
+        public var mediaType: IETF.RFC.`9110`.MediaType
 
         public var properties: Set<String>
 
@@ -18,8 +18,8 @@ extension W3C.EPUB.PackageDocument.Manifest {
 
         public init(
             id: String,
-            href: RFC_3987.IRI.Reference,
-            mediaType: RFC_9110.MediaType,
+            href: IETF.RFC.`3987`.IRI.Reference,
+            mediaType: IETF.RFC.`9110`.MediaType,
             properties: Set<String> = [],
             fallback: String? = nil
         ) {

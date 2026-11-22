@@ -7,13 +7,13 @@ extension W3C.EPUB.NavigationDocument {
 
         public var text: String
 
-        public var href: RFC_3987.IRI.Reference?
+        public var href: IETF.RFC.`3987`.IRI.Reference?
 
         public var children: [NavigationItem]
 
         public init(
             text: String,
-            href: RFC_3987.IRI.Reference? = nil,
+            href: IETF.RFC.`3987`.IRI.Reference? = nil,
             children: [NavigationItem] = []
         ) {
             self.text = text

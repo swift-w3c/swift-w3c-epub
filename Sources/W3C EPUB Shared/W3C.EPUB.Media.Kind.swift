@@ -27,8 +27,8 @@ extension W3C.EPUB.Media {
 
 extension W3C.EPUB.Media.Kind {
 
-    public var mediaType: RFC_9110.MediaType {
+    public var mediaType: IETF.RFC.`9110`.MediaType {
         let names = rawValue.split(separator: "/")
-        return RFC_9110.MediaType(String(names[0]), String(names[1]))
+        return IETF.RFC.`9110`.MediaType(String(names[0]), String(names[1]))
     }
 }

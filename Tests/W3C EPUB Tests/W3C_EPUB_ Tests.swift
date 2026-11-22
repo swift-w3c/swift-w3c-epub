@@ -59,7 +59,7 @@ extension `W3C_EPUB_ Tests` {
         func `Manifest item`() throws {
             let item = W3C.EPUB.PackageDocument.Manifest.Item(
                 id: "chapter1",
-                href: try RFC_3987.IRI.Reference("text/chapter1.xhtml"),
+                href: try IETF.RFC.`3987`.IRI.Reference("text/chapter1.xhtml"),
                 mediaType: W3C.EPUB.Media.Kind.xhtml.mediaType,
                 properties: ["scripted"]
             )
@@ -75,11 +75,11 @@ extension `W3C_EPUB_ Tests` {
                 children: [
                     W3C.EPUB.NavigationDocument.NavigationItem(
                         text: "Chapter 1",
-                        href: try RFC_3987.IRI.Reference("text/ch1.xhtml")
+                        href: try IETF.RFC.`3987`.IRI.Reference("text/ch1.xhtml")
                     ),
                     W3C.EPUB.NavigationDocument.NavigationItem(
                         text: "Chapter 2",
-                        href: try RFC_3987.IRI.Reference("text/ch2.xhtml")
+                        href: try IETF.RFC.`3987`.IRI.Reference("text/ch2.xhtml")
                     ),
                 ]
             )
