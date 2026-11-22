@@ -1,0 +1,8 @@
+import BCP_47
+import W3C_EPUB_Publications
+public import W3C_EPUB_Shared
+
+extension W3C.EPUB {
+
+    public enum PackageDocument {}
+}

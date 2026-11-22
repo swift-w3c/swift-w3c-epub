@@ -19,30 +19,30 @@ extension `W3C_EPUB_ Tests` {
 
         @Test
         func `Version comparison`() {
-            #expect(W3C_EPUB.Version.v2_0_1 < W3C_EPUB.Version.v3_0)
-            #expect(W3C_EPUB.Version.v3_0 < W3C_EPUB.Version.v3_2)
-            #expect(W3C_EPUB.Version.v3_2 < W3C_EPUB.Version.v3_3)
+            #expect(W3C.EPUB.Version.v2_0_1 < W3C.EPUB.Version.v3_0)
+            #expect(W3C.EPUB.Version.v3_0 < W3C.EPUB.Version.v3_2)
+            #expect(W3C.EPUB.Version.v3_2 < W3C.EPUB.Version.v3_3)
         }
 
         @Test
         func `Version 2.0.1 keeps its patch component`() {
-            #expect(W3C_EPUB.Version.v2_0_1.description == "2.0.1")
-            #expect(W3C_EPUB.Version.v3_3.description == "3.3")
-            #expect(W3C_EPUB.Version.v2_0_1 != W3C_EPUB.Version(major: 2, minor: 0))
-            #expect(W3C_EPUB.Version(major: 2, minor: 0) < W3C_EPUB.Version.v2_0_1)
-            #expect(W3C_EPUB.Version.v2_0_1 < W3C_EPUB.Version(major: 2, minor: 1))
+            #expect(W3C.EPUB.Version.v2_0_1.description == "2.0.1")
+            #expect(W3C.EPUB.Version.v3_3.description == "3.3")
+            #expect(W3C.EPUB.Version.v2_0_1 != W3C.EPUB.Version(major: 2, minor: 0))
+            #expect(W3C.EPUB.Version(major: 2, minor: 0) < W3C.EPUB.Version.v2_0_1)
+            #expect(W3C.EPUB.Version.v2_0_1 < W3C.EPUB.Version(major: 2, minor: 1))
         }
 
         @Test
         func `Media types`() {
-            #expect(W3C_EPUB.Media.Kind.epub.rawValue == "application/epub+zip")
-            #expect(W3C_EPUB.Media.Kind.package.rawValue == "application/oebps-package+xml")
-            #expect(W3C_EPUB.Media.Kind.xhtml.rawValue == "application/xhtml+xml")
+            #expect(W3C.EPUB.Media.Kind.epub.rawValue == "application/epub+zip")
+            #expect(W3C.EPUB.Media.Kind.package.rawValue == "application/oebps-package+xml")
+            #expect(W3C.EPUB.Media.Kind.xhtml.rawValue == "application/xhtml+xml")
         }
 
         @Test
         func `Package metadata`() throws {
-            let metadata = W3C_EPUB.PackageDocument.Metadata(
+            let metadata = W3C.EPUB.PackageDocument.Metadata(
                 identifier: "urn:uuid:12345",
                 title: "Test Book",
                 language: try BCP47.LanguageTag("en"),
@@ -57,10 +57,10 @@ extension `W3C_EPUB_ Tests` {
 
         @Test
         func `Manifest item`() throws {
-            let item = W3C_EPUB.PackageDocument.Manifest.Item(
+            let item = W3C.EPUB.PackageDocument.Manifest.Item(
                 id: "chapter1",
                 href: try RFC_3987.IRI.Reference("text/chapter1.xhtml"),
-                mediaType: W3C_EPUB.Media.Kind.xhtml.mediaType,
+                mediaType: W3C.EPUB.Media.Kind.xhtml.mediaType,
                 properties: ["scripted"]
             )
 
@@ -70,14 +70,14 @@ extension `W3C_EPUB_ Tests` {
 
         @Test
         func `Navigation item hierarchy`() throws {
-            let nav = W3C_EPUB.NavigationDocument.NavigationItem(
+            let nav = W3C.EPUB.NavigationDocument.NavigationItem(
                 text: "Part 1",
                 children: [
-                    W3C_EPUB.NavigationDocument.NavigationItem(
+                    W3C.EPUB.NavigationDocument.NavigationItem(
                         text: "Chapter 1",
                         href: try RFC_3987.IRI.Reference("text/ch1.xhtml")
                     ),
-                    W3C_EPUB.NavigationDocument.NavigationItem(
+                    W3C.EPUB.NavigationDocument.NavigationItem(
                         text: "Chapter 2",
                         href: try RFC_3987.IRI.Reference("text/ch2.xhtml")
                     ),
@@ -91,20 +91,20 @@ extension `W3C_EPUB_ Tests` {
 
         @Test
         func `Fixed layout viewport`() {
-            let viewport = W3C_EPUB.FixedLayouts.Viewport(width: 1024, height: 768)
+            let viewport = W3C.EPUB.FixedLayouts.Viewport(width: 1024, height: 768)
             #expect(viewport.metaContent == "width=1024, height=768")
         }
 
         @Test
         func `OCF container`() {
-            let container = W3C_EPUB.OCF.Container(
+            let container = W3C.EPUB.OCF.Container(
                 rootfiles: [
-                    W3C_EPUB.OCF.Container.Rootfile(fullPath: "OEBPS/content.opf")
+                    W3C.EPUB.OCF.Container.Rootfile(fullPath: "OEBPS/content.opf")
                 ]
             )
 
             #expect(container.rootfiles.count == 1)
-            #expect(container.rootfiles[0].mediaType == W3C_EPUB.Media.Kind.package.mediaType)
+            #expect(container.rootfiles[0].mediaType == W3C.EPUB.Media.Kind.package.mediaType)
         }
     }
 }
