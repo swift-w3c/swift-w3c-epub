@@ -45,7 +45,7 @@ extension `W3C_EPUB_ Tests` {
             let metadata = W3C.EPUB.PackageDocument.Metadata(
                 identifier: "urn:uuid:12345",
                 title: "Test Book",
-                language: try BCP47.LanguageTag("en"),
+                language: try BCP47.Tag("en"),
                 creators: ["Author One", "Author Two"]
             )
 

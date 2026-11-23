@@ -10,7 +10,7 @@ extension W3C.EPUB.PackageDocument {
 
         public var title: String
 
-        public var language: BCP47.LanguageTag
+        public var language: BCP47.Tag
 
         public var creators: [String]
 
@@ -29,7 +29,7 @@ extension W3C.EPUB.PackageDocument {
         public init(
             identifier: String,
             title: String,
-            language: BCP47.LanguageTag,
+            language: BCP47.Tag,
             creators: [String] = [],
             contributors: [String] = [],
             publisher: String? = nil,

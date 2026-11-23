@@ -11,7 +11,7 @@ extension W3C.EPUB.ContentDocuments {
 
         public var title: String?
 
-        public var language: BCP47.LanguageTag?
+        public var language: BCP47.Tag?
 
         public var isScripted: Bool
 
@@ -20,7 +20,7 @@ extension W3C.EPUB.ContentDocuments {
             // REASON: A content document's name inside the EPUB container, text the OCF format defines and not a path on this file system, as a ZIP entry name is; looked at Path and Path.Component, which hold this platform's names.
             filename: String,
             title: String? = nil,
-            language: BCP47.LanguageTag? = nil,
+            language: BCP47.Tag? = nil,
             isScripted: Bool = false
         ) {
             self.filename = filename
